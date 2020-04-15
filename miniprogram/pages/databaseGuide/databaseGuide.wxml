@@ -2,7 +2,7 @@
 <view class="container">
 
   <!-- 导航 -->
-  <view class="list">
+  <!-- <view class="list">
     <view class="list-item">
       <text class="request-text">数据库指引</text>
     </view>
@@ -15,22 +15,22 @@
     <view class="list-item" wx:if="{{counterId}}">
       <text class="request-text">当前记录 ID：{{counterId}}</text>
     </view>
-  </view>
+  </view> -->
 
   <!-- 快速操作数据库指引 -->
 
   <!-- 简介 -->
-  <view class="guide" wx:if="{{step === 1}}">
+  <!-- <view class="guide" wx:if="{{step === 1}}">
     <text class="headline">示例介绍</text>
     <text class="p">1. 以计数器为例，在此演示如何操作数据库</text>
     <text class="p">2. 数据库操作大多需要用户 openid，需先配置好 login 云函数，如已配置好，点击下一步，获取用户 openid 并开始我们的指引</text>
     <div class="nav">
       <button class="next" size="mini" type="default" bindtap="nextStep">下一步</button>
     </div>
-  </view>
+  </view> -->
 
   <!-- 新建集合 -->
-  <view class="guide" wx:if="{{step === 2}}">
+  <!-- <view class="guide" wx:if="{{step === 2}}">
     <text class="headline">新建集合</text>
     <text class="p">1. 打开云开发控制台，进入到数据库管理页</text>
     <image class="image1" src="../../images/console-entrance.png" mode="aspectFit"></image>
@@ -43,10 +43,10 @@
       <button class="prev" size="mini" type="default" bindtap="prevStep">上一步</button>
       <button class="next" size="mini" type="default" bindtap="nextStep">下一步</button>
     </div>
-  </view>
+  </view> -->
 
   <!-- 新增记录 -->
-  <view class="guide" wx:if="{{step === 3}}">
+  <!-- <view class="guide" >
     <text class="headline">新增记录</text>
     <text class="p">1. 打开 pages/databaseGuide/databaseGuide.js 文件，定位到 onAdd 方法</text>
     <text class="p">2. 把注释掉的代码解除注释</text>
@@ -68,26 +68,28 @@
       <button class="prev" size="mini" type="default" bindtap="prevStep">上一步</button>
       <button class="next" size="mini" type="default" bindtap="nextStep" wx:if="{{counterId}}">下一步</button>
     </div>
-  </view>
+  </view>   -->
 
   <!-- 查询记录 -->
-  <view class="guide" wx:if="{{step === 4}}">
-    <text class="headline">查询记录</text>
+ <view class="guide" >
+  <button size="mini" type="default" bindtap="onQuery">查询记录</button>
+    <text class="code" wx:if="{{queryResult}}">{{queryResult}}</text>
+    <!-- <text class="headline">查询记录</text>
     <text class="p">1. 打开 pages/databaseGuide/databaseGuide.js 文件，定位到 onQuery 方法</text>
     <text class="p">2. 把注释掉的代码解除注释，onQuery 方法会在下方按钮被点击时触发</text>
     <image class="code-image" src="../../images/code-db-onQuery.png" mode="aspectFit"></image>
     <text class="p">3. 点击按钮</text>
-    <button size="mini" type="default" bindtap="onQuery">查询记录</button>
-    <text class="code" wx:if="{{queryResult}}">{{queryResult}}</text>
+   
+  
 
     <div class="nav">
       <button class="prev" size="mini" type="default" bindtap="prevStep">上一步</button>
       <button class="next" size="mini" type="default" bindtap="nextStep">下一步</button>
-    </div>
+    </div> -->
   </view>
 
   <!-- 更新记录 -->
-  <view class="guide" wx:if="{{step === 5}}">
+  <!-- <view class="guide" wx:if="{{step === 5}}">
     <text class="headline">更新记录</text>
     <text class="p">1. 打开 pages/databaseGuide/databaseGuide.js 文件，定位到 onCounterInc 和 onCounterDec 方法</text>
     <text class="p">2. 把注释掉的代码解除注释</text>
@@ -105,7 +107,7 @@
     </div>
   </view>
 
-  <!-- 删除记录 -->
+  删除记录 
   <view class="guide" wx:if="{{step === 6}}">
     <text class="headline">删除记录</text>
     <text class="p">1. 打开 pages/databaseGuide/databaseGuide.js 文件，定位到 onRemove 方法</text>
@@ -118,17 +120,17 @@
       <button class="prev" size="mini" type="default" bindtap="prevStep" wx:if="{{counterId}}">上一步</button>
       <button class="next" size="mini" type="default" bindtap="nextStep">下一步</button>
     </div>
-  </view>
+  </view> -->
 
   <!-- 结语 -->
-  <view class="guide" wx:if="{{step === 7}}">
+  <!-- <view class="guide" wx:if="{{step === 7}}">
     <text class="headline">完成指引 !</text>
     <text class="p">恭喜你，至此已完成数据库操作入门基础，可以点击调试器中的链接，查看详尽的数据库文档</text>
 
     <div class="nav">
       <button class="prev" size="mini" type="default" bindtap="prevStep">上一步</button>
       <button class="next" size="mini" type="default" bindtap="goHome">回到首页</button>
-    </div>
-  </view>
+    </div> 
+  </view>-->
 
 </view>

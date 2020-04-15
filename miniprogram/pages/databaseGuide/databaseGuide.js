@@ -22,15 +22,17 @@ Page({
 
   onAdd: function () {
       const db = wx.cloud.database()
-      db.collection('counters').add({
+      db.collection('joke').add({
         data: {
-         count: 1
+         value: "老婆永远是对的，这话永远也是对的。但老婆没想到的是，她不一定永远是老婆!",
+         type:1
         },
        success: res => {
         // 在返回结果中会包含新创建的记录的 _id
          this.setData({
            counterId: res._id,
-           count: 1
+           value: "老婆永远是对的，这话永远也是对的。但老婆没想到的是，她不一定永远是老婆!",
+           type:1
         })
           wx.showToast({
            title: '新增记录成功',
@@ -50,8 +52,10 @@ Page({
   onQuery: function() {
     const db = wx.cloud.database()
     // 查询当前用户所有的 counters
-    db.collection('counters').where({
-      _openid: this.data.openid
+    db.collection('joke').where({
+      _openid: app.globalData.openid,
+      isDelete:1,
+      type:1
     }).get({
       success: res => {
         this.setData({
