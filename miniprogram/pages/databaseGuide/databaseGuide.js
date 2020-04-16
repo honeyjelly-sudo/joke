@@ -11,13 +11,59 @@ Page({
     count: null,
     queryResult: '',
   },
-
+  onQuery: function() {
+    console.log(11111111111111111111111111)
+    const db = wx.cloud.database()
+    // 查询当前用户所有的 counters
+    db.collection('joke').where({
+      _openid: app.globalData.openid,
+      isDelete:1,
+      type:1
+    }).get({
+      success: res => {
+        this.setData({
+          queryResult: res.data
+        })
+        console.log('[数据库] [查询记录] 成功: ', res)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '查询记录失败'
+        })
+        console.error('[数据库] [查询记录] 失败：', err)
+      }
+    })
+  },
   onLoad: function (options) {
     if (app.globalData.openid) {
       this.setData({
         openid: app.globalData.openid
       })
     }
+    let type=options.type;
+    const db = wx.cloud.database()
+    // 查询当前用户所有的 counters
+    db.collection('joke').where({
+      _openid: app.globalData.openid,
+      isDelete:1,
+      type:type
+    }).get({
+      success: res => {
+        this.setData({
+          queryResult: res.data
+        })
+        console.log('[数据库] [查询记录] 成功: ', res)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '查询记录失败'
+        })
+        console.error('[数据库] [查询记录] 失败：', err)
+      }
+    })
+   
   },
 
   onAdd: function () {
@@ -49,29 +95,7 @@ Page({
       })
   },
 
-  onQuery: function() {
-    const db = wx.cloud.database()
-    // 查询当前用户所有的 counters
-    db.collection('joke').where({
-      _openid: app.globalData.openid,
-      isDelete:1,
-      type:1
-    }).get({
-      success: res => {
-        this.setData({
-          queryResult: JSON.stringify(res.data, null, 2)
-        })
-        console.log('[数据库] [查询记录] 成功: ', res)
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '查询记录失败'
-        })
-        console.error('[数据库] [查询记录] 失败：', err)
-      }
-    })
-  },
+
 
   onCounterInc: function() {
     const db = wx.cloud.database()

@@ -12,7 +12,7 @@
     ></button>
     <view class="userinfo-nickname-wrapper">
       <!-- <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button> -->
-       <button class="userinfo-nickname" >笑话大全</button>
+       <button class="userinfo-nickname"  >笑话大全</button>
     </view>
     
   </view>
@@ -29,13 +29,18 @@
   </view> -->
 
 
-  <!-- 操作数据库 -->
+  <!-- 冷笑话 -->
   <view class="uploader">
-    <navigator url="../databaseGuide/databaseGuide" open-type="navigate" class="uploader-text">
+    <navigator url="../databaseGuide/databaseGuide?type=1" open-type="navigate" class="uploader-text">
       <text>冷笑话</text>
     </navigator>
   </view>
-  
+    <!-- 校园 -->
+  <view class="uploader">
+    <navigator url="../databaseGuide/databaseGuide?type=2" open-type="navigate" class="uploader-text">
+      <text>校园</text>
+    </navigator>
+  </view>
   <!-- 即时通信 -->
   <!-- <view class="uploader">
     <navigator url="../im/im" open-type="navigate" class="uploader-text">
